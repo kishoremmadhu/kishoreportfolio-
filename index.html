@@ -117,18 +117,72 @@
 
   <header>
     <div class="logo">My Portfolio</div>
-    <nav>
-      <a href="#about" class="nav-btn">About Me</a>
-      <a href="#resume" class="nav-btn">Resume</a>
-      <a href="#projects" class="nav-btn">Projects</a>
-      <a href="#contact" class="nav-btn">Contact</a>
-    </nav>
-  </header>
-
+      <div class="nav">
+    <button onclick="openTab('about')">About Me</button>
+    <button onclick="openTab('resume')">Resume</button>
+    <button onclick="openTab('projects')">Projects</button>
+    <button onclick="openTab('contact')">Contact</button>
+      </div>
   <main>
     <h1>Welcome to My Portfolio</h1>
     <p>This site showcases my work in data analytics, digital marketing, and AI. Feel free to explore the sections above to learn more about my background, skills, and ongoing projects.</p>
   </main>
+  <div id="about" class="tab-content active">
+    <h2>About Me</h2>
+    <p>
+      I'm a passionate and curious learner currently pursuing my 1st year in Integrated MCA at De Paul Institute of Science & Technology (DIST), affiliated with MG University. My main interests lie in <strong>Data Analytics</strong> and <strong>Digital Marketing</strong>, where I'm actively building hands-on experience through certified courses, real-world projects, and constant self-learning.
+    </p>
+    <br>
+    <p>
+      My aim is to become a <strong>versatile tech professional</strong> capable of solving real-world problems using a mix of analytical thinking, technical tools, and strategic creativity. I'm especially focused on gaining freelance experience, contributing to open-source, and building a strong professional presence on LinkedIn and GitHub.
+    </p>
+    <br>
+    <p>
+      <strong>Currently Learning:</strong><br>
+      Python, SQL, Power BI, Excel, Tableau<br>
+      AI & ML with Scikit-learn, TensorFlow, and PyTorch (Beginner)<br>
+      Digital Marketing (SEO, Google Analytics, Meta Ads, Canva)<br>
+      Tools: GitHub, VS Code, LinkedIn Networking
+    </p>
+  </div>
 
+  <div id="resume" class="tab-content">
+    <h2>Resume</h2>
+    <p>
+      ● Integrated MCA - De Paul Institute of Science & Technology (MG University)<br>
+      ● Certified courses in Digital Marketing, Data Analytics, and Python<br>
+      ● Proficient in Microsoft Excel, SQL, Power BI, and Google Analytics<br>
+      ● Experience with Scikit-learn, basic TensorFlow, and AI tools<br>
+      ● Strong understanding of SEO, Canva design, and Meta Ads<br>
+      <br>
+      <strong>Soft Skills:</strong><br>
+      Communication, Analytical Thinking, Self-Learning, Teamwork
+    </p>
+  </div>
+
+  <div id="projects" class="tab-content">
+    <h2>Projects</h2>
+    <p>
+      ● Interactive dashboards and data visualizations using Power BI & Tableau<br>
+      ● AI Mini-Projects: Recommendation system, basic prediction models<br>
+      ● Digital Marketing Campaign Plan (Meta Ads & SEO Optimization)<br>
+      ● Personal portfolio website hosted via GitHub Pages<br>
+      <br>
+      <strong>Future Goals:</strong><br>
+      ✓ Work on industry-level AI/Data projects<br>
+      ✓ Intern at a growing tech company<br>
+      ✓ Freelance or contribute to open-source<br>
+      ✓ Build strong LinkedIn & GitHub presence
+    </p>
+  </div>
+
+  <div id="contact" class="tab-content">
+    <h2>Contact</h2>
+    <p>
+      📧 Email: your.email@example.com<br>
+      💼 LinkedIn: <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a><br>
+      💻 GitHub: <a href="https://github.com/your-username" target="_blank">github.com/your-username</a>
+    </p>
+  </div>
 </body>
 </html>  
