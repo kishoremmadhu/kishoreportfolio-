@@ -3,29 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kishore's Portfolio</title>
+  <title>Kishore Portfolio</title>
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f5f5;
-      color: #333;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1e293b;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .tab {
+      color: #f1f5f9;
+      background-color: transparent;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+    }
+
+    .tab:hover,
+    .tab.active {
+      background-color: #334155;
+      border-radius: 5px;
+    }
+
+    .content-section {
+      display: none;
       padding: 2rem;
     }
 
-    .container {
-      max-width: 800px;
-      margin: auto;
+    .content-section.active {
+      display: block;
     }
 
     .hero {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-top: 2rem;
     }
 
     .profile-photo {
@@ -33,8 +65,8 @@
       height: 120px;
       border-radius: 50%;
       overflow: hidden;
-      margin: auto;
-      border: 3px solid #222;
+      margin: 0 auto 1rem;
+      border: 3px solid #64748b;
     }
 
     .profile-photo img {
@@ -43,124 +75,144 @@
       object-fit: cover;
     }
 
-    .typing-text {
+    .typing {
+      color: #38bdf8;
       font-size: 1.5rem;
-      color: #2d2d2d;
+      font-weight: bold;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 3px solid #333;
-      width: 0;
-      animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
-      margin: 1rem 0;
+      border-right: 2px solid #38bdf8;
+      width: 100%;
+      max-width: 400px;
+      margin: 1rem auto;
+      animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
     }
 
     @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
     }
 
     @keyframes blink {
-      50% { border-color: transparent; }
+      50% {
+        border-color: transparent;
+      }
     }
 
-    .tabs {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
+    a {
+      color: #38bdf8;
+      text-decoration: none;
     }
 
-    .tabs button {
-      padding: 10px 20px;
-      background: #333;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s;
-      margin: 5px;
+    a:hover {
+      text-decoration: underline;
     }
 
-    .tabs button:hover,
-    .tabs button.active {
-      background: #555;
+    .contact-links {
+      margin-top: 1rem;
     }
 
-    .tab-content {
-      display: none;
-      padding: 1rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .tab-content.active {
-      display: block;
+    .contact-links a {
+      margin-right: 1rem;
+      display: inline-block;
     }
 
     @media (max-width: 600px) {
-      .typing-text {
-        font-size: 1.2rem;
+      header {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       .tabs {
-        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .typing {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Kishore</h1>
+    <nav class="tabs">
+      <button class="tab active" data-tab="home">Home</button>
+      <button class="tab" data-tab="about">About</button>
+      <button class="tab" data-tab="resume">Resume</button>
+      <button class="tab" data-tab="goals">Goals</button>
+      <button class="tab" data-tab="contact">Contact</button>
+    </nav>
+  </header>
 
-  <div class="container">
-    <section class="hero">
+  <section id="home" class="content-section active">
+    <div class="hero">
       <div class="profile-photo">
-        <img src="profile.jpg" alt="Kishore's Profile">
+        <img src="Screenshot_20250720-133152.Google.png" alt="Profile Photo" />
       </div>
-      <h1 class="typing-text">Hello, I'm Kishore | Web Dev & AI Learner</h1>
-    </section>
-
-    <div class="tabs">
-      <button class="tablink active" onclick="showTab(event, 'about')">About</button>
-      <button class="tablink" onclick="showTab(event, 'projects')">Projects</button>
-      <button class="tablink" onclick="showTab(event, 'goals')">Goals</button>
-      <button class="tablink" onclick="window.open('https://drive.google.com/your-resume-link', '_blank')">Resume</button>
+      <h2>Hello, I'm Kishore</h2>
+      <div class="typing">Aspiring Web Developer | AI Enthusiast</div>
     </div>
+  </section>
 
-    <div id="about" class="tab-content active">
-      <h2>About Me</h2>
-      <p>I am an aspiring Web Developer with a passion for AI and design. I love building interactive, clean web interfaces.</p>
-    </div>
+  <section id="about" class="content-section">
+    <h2>About Me</h2>
+    <p>
+      I am a passionate web developer and AI learner based in India. I love building sleek, interactive websites and exploring new technologies.
+    </p>
+  </section>
 
-    <div id="projects" class="tab-content">
-      <h2>Projects</h2>
-      <ul>
-        <li>Portfolio Website</li>
-        <li>To-Do App with LocalStorage</li>
-        <li>AI-based Weather App (WIP)</li>
-      </ul>
-    </div>
+  <section id="resume" class="content-section">
+    <h2>Resume</h2>
+    <p>
+      You can view/download my resume here:
+      <a href="https://drive.google.com/file/d/1sp6sAbLSDox0WrK0UeSgfgKoa9Q0smHR/view?usp=sharing" target="_blank">Google Drive Resume</a>
+    </p>
+  </section>
 
-    <div id="goals" class="tab-content">
-      <h2>My Goals</h2>
-      <ul>
-        <li>Master Frontend & Backend Development</li>
-        <li>Contribute to Open Source</li>
-        <li>Build AI-integrated web apps</li>
-        <li>Get Internship/Remote Job</li>
-      </ul>
+  <section id="goals" class="content-section">
+    <h2>My Goals</h2>
+    <ul>
+      <li>Master frontend and backend web development</li>
+      <li>Get certified in AI & ML</li>
+      <li>Build real-world applications and contribute to open-source</li>
+      <li>Land a job in top tech company or freelance with strong portfolio</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="content-section">
+    <h2>Contact</h2>
+    <p>You can reach me through:</p>
+    <div class="contact-links">
+      <a href="mailto:kishoremmadhu@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/kishoremmadhu/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/kishoremmadhu" target="_blank">GitHub</a>
     </div>
-  </div>
+  </section>
 
   <script>
-    function showTab(evt, tabId) {
-      const tabs = document.querySelectorAll('.tab-content');
-      const buttons = document.querySelectorAll('.tablink');
+    const tabs = document.querySelectorAll(".tab");
+    const sections = document.querySelectorAll(".content-section");
 
-      tabs.forEach(tab => tab.classList.remove('active'));
-      buttons.forEach(btn => btn.classList.remove('active'));
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((btn) => btn.classList.remove("active"));
+        tab.classList.add("active");
 
-      document.getElementById(tabId).classList.add('active');
-      evt.currentTarget.classList.add('active');
-    }
+        const target = tab.getAttribute("data-tab");
+        sections.forEach((section) => {
+          section.classList.remove("active");
+          if (section.id === target) {
+            section.classList.add("active");
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
