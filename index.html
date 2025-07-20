@@ -3,119 +3,173 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kishore M Madhu | Portfolio</title>
+  <title>Your Portfolio</title>
   <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #212529;
     }
 
     header {
-      background: #1e1e2f;
-      padding: 1rem 2rem;
-      text-align: center;
-      color: white;
-    }
-
-    .btn {
-      border: 2px solid #1e1e2f;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      font-size: 1rem;
-      background-color: transparent;
-      color: #1e1e2f;
-      cursor: pointer;
-      position: relative;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #1e1e2f;
-      color: white;
-    }
-
-    .nav {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .section h2 {
-      color: #1e1e2f;
-      margin-bottom: 1rem;
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-    .card {
+      background-color: #fff;
       padding: 1rem;
-      background-color: white;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .card h3 {
-      margin-top: 0;
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .nav-buttons a {
+      position: relative;
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+      border: 2px solid transparent;
+      background-color: transparent;
+      transition: color 0.3s ease;
+    }
+
+    .nav-buttons a::before,
+    .nav-buttons a::after {
+      content: '';
+      position: absolute;
+      border: 2px solid #333;
+      width: 0%;
+      height: 0%;
+      transition: all 0.3s ease;
+    }
+
+    .nav-buttons a::before {
+      top: 0;
+      left: 0;
+      border-bottom: none;
+      border-right: none;
+    }
+
+    .nav-buttons a::after {
+      bottom: 0;
+      right: 0;
+      border-top: none;
+      border-left: none;
+    }
+
+    .nav-buttons a:hover::before,
+    .nav-buttons a:hover::after {
+      width: 100%;
+      height: 100%;
+    }
+
+    .nav-buttons a:hover {
+      color: #007bff;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #007bff;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 0.5rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
     }
 
     footer {
       text-align: center;
       padding: 1rem;
-      background-color: #1e1e2f;
-      color: white;
-      margin-top: 3rem;
+      background-color: #f1f3f5;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .nav-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Kishore M Madhu</h1>
-    <p>IMCA Student | Aspiring Data Analyst & Digital Marketer</p>
+    <h1>Your Name</h1>
+    <div class="nav-buttons">
+      <a href="#about">About Me</a>
+      <a href="#resume">Resume</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#goals">Goals</a>
+    </div>
   </header>
 
-  <div class="nav">
-    <a href="#about"><button class="btn">About Me</button></a>
-    <a href="https://drive.google.com/your-resume-link" target="_blank"><button class="btn">Resume</button></a>
-    <a href="#portfolio"><button class="btn">Portfolio</button></a>
-  </div>
-
-  <section id="about" class="section">
+  <section id="about">
     <h2>About Me</h2>
-    <p>I am a first-year Integrated MCA student at D.I.S.T under MG University, with a strong passion for data analytics and digital marketing. I am currently building my skills through hands-on projects, certifications, and practical learning. I'm also exploring the field of AI and machine learning to expand my understanding of how data-driven solutions impact real-world problems. I’m actively seeking opportunities to apply my skills in real-time projects and internships in the data analytics and marketing domain.</p>
+    <p>
+      I’m a passionate and curious learner currently pursuing my 1st year in Integrated MCA at De Paul Institute of Science & Technology (DIST), MG University. 
+      With a strong interest in Data Analytics and Digital Marketing, I am actively building real-world skills through certified courses, hands-on projects, and self-learning.
+    </p>
+    <p>
+      My goal is to become a versatile professional capable of solving real-world problems by combining creativity and analytical thinking. I'm open to exciting collaborations and opportunities that help me grow personally and professionally.
+    </p>
   </section>
 
-  <section id="portfolio" class="section">
-    <h2>My Projects</h2>
-    <div class="portfolio-grid">
-      <div class="card">
-        <h3>Sales Dashboard</h3>
-        <p>Built using Excel and Power BI. Provides dynamic insights into sales trends, regions, and product categories.</p>
-      </div>
-      <div class="card">
-        <h3>SEO Audit Report</h3>
-        <p>Used Google Analytics & SEMrush to analyze a brand's website and improve keyword targeting and traffic.</p>
-      </div>
-      <div class="card">
-        <h3>Coming Soon</h3>
-        <p>New projects in progress — stay tuned!</p>
-      </div>
-    </div>
+  <section id="resume">
+    <h2>Resume</h2>
+    <p>Download my resume <a href="your-resume-link.pdf" target="_blank">here</a>.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Currently Learning</h2>
+    <ul>
+      <li>Python, SQL, Power BI, Excel, Tableau</li>
+      <li>AI & ML: Scikit-learn, TensorFlow, PyTorch (beginner)</li>
+      <li>Digital Marketing: SEO, Google Analytics, Meta Ads, Canva</li>
+      <li>GitHub, VS Code, LinkedIn Networking</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Planned Projects</h2>
+    <ul>
+      <li>Data dashboards & visualizations</li>
+      <li>AI mini-models: recommendation systems, prediction models</li>
+      <li>Basic web apps using Python</li>
+      <li>Portfolio website hosted on GitHub Pages</li>
+    </ul>
+  </section>
+
+  <section id="goals">
+    <h2>Future Goals</h2>
+    <ul>
+      <li>Work on industry-level AI/Data projects</li>
+      <li>Intern at a tech-focused company</li>
+      <li>Start freelancing in analytics/marketing</li>
+      <li>Contribute to open-source projects</li>
+      <li>Build a strong LinkedIn & GitHub presence</li>
+    </ul>
   </section>
 
   <footer>
-    <p>© 2025 Kishore M Madhu | Portfolio</p>
+    © 2025 Your Name. All rights reserved.
   </footer>
 
 </body>
