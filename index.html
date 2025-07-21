@@ -76,32 +76,35 @@
     }
 
     .typing-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1.5rem;
-  text-align: center;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem;
-}
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+    }
 
-.typing-line {
-  color: #38bdf8;
-  font-size: clamp(1.2rem, 2vw, 1.5rem); /* Matches h3 sizing */
-  font-weight: bold;
-  white-space: pre-wrap;
-  word-break: break-word;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInUp 0.5s ease forwards;
-  margin-bottom: 0.75rem;
-  width: 100%;
-  text-align: center;
-}
+    .typing-line {
+      color: #38bdf8;
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-weight: bold;
+      white-space: pre-wrap;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.4s ease forwards;
+      margin-bottom: 0.75rem;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     .contact-links {
       margin-top: 1rem;
@@ -148,7 +151,7 @@
       </div>
       <h2>Hello, I'm Kishore</h2>
       <div class="typing-container" id="typing-container">
-        <!-- Lines will be injected here -->
+        <!-- Typing lines will appear here -->
       </div>
     </div>
   </section>
@@ -194,68 +197,62 @@
   </section>
 
   <script>
-  // Tabs
-  const tabs = document.querySelectorAll(".tab");
-  const sections = document.querySelectorAll(".content-section");
+    // Tabs
+    const tabs = document.querySelectorAll(".tab");
+    const sections = document.querySelectorAll(".content-section");
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      tabs.forEach((btn) => btn.classList.remove("active"));
-      tab.classList.add("active");
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((btn) => btn.classList.remove("active"));
+        tab.classList.add("active");
 
-      const target = tab.getAttribute("data-tab");
-      sections.forEach((section) => {
-        section.classList.remove("active");
-        if (section.id === target) {
-          section.classList.add("active");
-        }
+        const target = tab.getAttribute("data-tab");
+        sections.forEach((section) => {
+          section.classList.remove("active");
+          if (section.id === target) {
+            section.classList.add("active");
+          }
+        });
       });
     });
-  });
 
-  // Typing animation - line by line
-  const lines = [
-    "1st Year Integrated MCA Student",
-    "Aspiring AI & ML Engineer",
-    "Budding Data Analyst & Digital Marketer",
-    "Project-Oriented Learner",
-    "Freelancing Enthusiast"
-  ];
+    // Typing Animation
+    const lines = [
+      "1st Year Integrated MCA Student",
+      "Aspiring AI & ML Engineer",
+      "Budding Data Analyst & Digital Marketer",
+      "Project-Oriented Learner",
+      "Freelancing Enthusiast"
+    ];
 
-  const container = document.getElementById("typing-container");
-  let lineIndex = 0;
+    const container = document.getElementById("typing-container");
+    let lineIndex = 0;
 
-  function typeLine() {
-    if (lineIndex < lines.length) {
-      const div = document.createElement("div");
-      div.classList.add("typing-line");
-      container.appendChild(div);
+    function typeLine() {
+      if (lineIndex < lines.length) {
+        const div = document.createElement("div");
+        div.classList.add("typing-line");
+        container.appendChild(div);
 
-      let charIndex = 0;
-      const line = lines[lineIndex];
+        let charIndex = 0;
+        const line = lines[lineIndex];
 
-      function typeChar() {
-        if (charIndex < line.length) {
-          div.textContent += line.charAt(charIndex);
-          charIndex++;
-          setTimeout(typeChar, 60);
-        } else {
-          // Show cursor only during typing, remove it after brief delay
-          if (lineIndex === lines.length - 1) {
-            div.classList.add("blinking");
-            setTimeout(() => {
-              div.classList.remove("blinking");
-            }, 1000); // cursor visible for 1 second after last line
+        function typeChar() {
+          if (charIndex < line.length) {
+            div.textContent += line.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeChar, 50);
+          } else {
+            lineIndex++;
+            setTimeout(typeLine, 400);
           }
-          lineIndex++;
-          setTimeout(typeLine, 600);
         }
-      }
-      typeChar();
-    }
-  }
 
-  window.addEventListener("DOMContentLoaded", typeLine);
+        typeChar();
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", typeLine);
   </script>
 </body>
 </html>
