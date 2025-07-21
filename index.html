@@ -76,30 +76,18 @@
     }
 
     .typing {
-  text-align: center;
-  margin: 1rem auto;
-  max-width: 400px;
-}
+      color: #38bdf8;
+      font-size: 1.5rem;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #38bdf8;
+      width: fit-content;
+      margin: 1rem auto;
+    }
 
-.typing span {
-  display: inline-block;
-  color: #38bdf8;
-  font-size: 1.5rem;
-  font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid #38bdf8;
-  width: 0;
-  animation: typing 4s steps(60, end) forwards, blink 0.75s step-end infinite;
-}
-
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-      to {
-        width: 100%;
-      }
+    .blinking-cursor {
+      animation: blink 0.75s step-end infinite;
     }
 
     @keyframes blink {
@@ -161,33 +149,19 @@
         <img src="Screenshot_20250720-133152.Google.png" alt="Profile Photo" />
       </div>
       <h2>Hello, I'm Kishore</h2>
-      <div class="typing">
-  <span id="typing-text">1st Year Integrated MCA Student | Aspiring AI & ML Engineer | Budding Data Analyst & Digital Marketer | Project-Oriented Learner | Freelancing Enthusiast</span>
-      </div>
+      <div class="typing" id="typing-text"></div>
+    </div>
   </section>
 
   <section id="about" class="content-section">
     <h2>About Me</h2>
     <p>
-      I'm a passionate and curious learner currently pursuing my 1st year in Integrated MCA at De Paul Institute of Science & Technology (DIST), affiliated with MG University. My main interests lie in <strong>Data Analytics</strong> and <strong>Digital Marketing</strong>, where I'm actively building hands-on experience through certified courses, real-
-
-world projects, and constant self-learning.<br>
-
-My aim is to become a <strong>versatile tech
-
-professional</strong> capable of solving real-world problems using a mix of analytical thinking, technical tools, and strategic creativity. I'm especially focused on gaining freelance experience, contributing to open-source, and building a strong professional presence on LinkedIn and
-
-GitHub.<br>
-
-<strong>Currently Learning:</strong><br>
-
-Python, SQL, Power BI, Excel, Tableau Al & ML with Scikit-learn, TensorFlow, and PyTorch (Beginner)<br>
-
-Digital Marketing (SEO, Google Analytics, Meta Ads, Canva)<br>
-
-Tools: GitHub, VS Code, LinkedIn
-
-Networking<br>
+      I'm a passionate and curious learner currently pursuing my 1st year in Integrated MCA at De Paul Institute of Science & Technology (DIST), affiliated with MG University. My main interests lie in <strong>Data Analytics</strong> and <strong>Digital Marketing</strong>, where I'm actively building hands-on experience through certified courses, real-world projects, and constant self-learning.<br>
+      My aim is to become a <strong>versatile tech professional</strong> capable of solving real-world problems using a mix of analytical thinking, technical tools, and strategic creativity. I'm especially focused on gaining freelance experience, contributing to open-source, and building a strong professional presence on LinkedIn and GitHub.<br>
+      <strong>Currently Learning:</strong><br>
+      Python, SQL, Power BI, Excel, Tableau, AI & ML with Scikit-learn, TensorFlow, and PyTorch (Beginner)<br>
+      Digital Marketing (SEO, Google Analytics, Meta Ads, Canva)<br>
+      Tools: GitHub, VS Code, LinkedIn Networking<br>
     </p>
   </section>
 
@@ -202,7 +176,7 @@ Networking<br>
   <section id="goals" class="content-section">
     <h2>My Goals</h2>
     <ul>
-      <li>Master Data Analytics and Digital Marketing </li>
+      <li>Master Data Analytics and Digital Marketing</li>
       <li>Get certified in AI & ML</li>
       <li>Build real-world applications and contribute to open-source</li>
       <li>Land a job in top tech company or freelance with strong portfolio</li>
@@ -220,6 +194,7 @@ Networking<br>
   </section>
 
   <script>
+    // Tab switching
     const tabs = document.querySelectorAll(".tab");
     const sections = document.querySelectorAll(".content-section");
 
@@ -237,6 +212,24 @@ Networking<br>
         });
       });
     });
+
+    // Typing animation
+    const text = "1st Year Integrated MCA Student | Aspiring AI & ML Engineer | Budding Data Analyst & Digital Marketer | Project-Oriented Learner | Freelancing Enthusiast";
+    const typingElement = document.getElementById("typing-text");
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        typingElement.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 35); // speed
+      } else {
+        typingElement.classList.add("blinking-cursor");
+      }
+    }
+
+    // Start typing animation
+    window.addEventListener("DOMContentLoaded", typeWriter);
   </script>
 </body>
 </html>
